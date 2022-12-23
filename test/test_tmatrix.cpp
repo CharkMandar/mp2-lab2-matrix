@@ -103,8 +103,8 @@ TEST(TDynamicMatrix, compare_equal_matrices_return_true)
 
 TEST(TDynamicMatrix, compare_matrix_with_itself_return_true)
 {
-	TDynamicMatrix<int> m(10);
-  EXPECT_EQ(1,m == m);
+	TDynamicMatrix<int> mat(10);
+  EXPECT_EQ(1,mat == mat);
 }
 
 TEST(TDynamicMatrix, matrices_with_different_size_are_not_equal)
