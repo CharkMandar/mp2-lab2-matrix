@@ -86,13 +86,13 @@ public:
   T& at(size_t ind)
   {
       if (ind < 0 || ind > sz)
-          throw std::exception "Invalid index";
+          throw std::exception; //"Invalid index";
       return this->pMem[ind];
   }
   const T& at(size_t ind) const
   {
       if (ind < 0 || ind > sz)
-          throw std::exception "Invalid index";
+          throw std::exception; //"Invalid index";
       return this->pMem[ind];
   }
 
@@ -149,7 +149,7 @@ public:
   TDynamicVector operator+(const TDynamicVector& v)
   {
       if (sz != v.sz) {
-          throw std::exception "Objects have different size";
+          throw std::exception;//"Objects have different size";
       }
 
       TDynamicVector tmp(sz);
@@ -162,7 +162,7 @@ public:
   TDynamicVector operator-(const TDynamicVector& v)
   {
       if (sz != v.sz) {
-          throw std::exception "Objects have different size";
+          throw std::exception; //"Objects have different size";
       }
 
       TDynamicVector tmp(sz);
@@ -175,7 +175,7 @@ public:
   T operator*(const TDynamicVector& v) noexcept(noexcept(T()))
   {
       if (sz != v.sz)
-          throw std::exception ("Vectors are different in size");
+          throw std::exception; //("Vectors are different in size");
       T tmp = 0;
       for (size_t i = 0; i < sz; i++) {
           tmp += pMem[i] * v.pMem[i];
@@ -216,7 +216,7 @@ public:
   TDynamicMatrix(size_t s = 1) : TDynamicVector<TDynamicVector<T>>(s)
   {
       if (s <= 0 || s > MAX_MATRIX_SIZE)
-          throw std::exception "Invalid index";
+          throw std::exception; //"Invalid index";
       for (size_t i = 0; i < sz; i++)
           this->pMem[i] = TDynamicVector<T>(sz);
 
@@ -227,13 +227,13 @@ public:
   T& at(size_t a, size_t b)
   {
       if (a < 0 || a >= sz || b < 0 || b >= sz)
-          throw std::exception "Index out of range";
+          throw std::exception; // "Index out of range";
       return pMem[a].at(b);
   }
   const T& at(size_t a, size_t b) const
   {
       if (a < 0 || a >= sz || b < 0 || b >= sz)
-          throw std::exception "Index out of range";
+          throw std::exception; // "Index out of range";
       return pMem[a].at(b);
   }
 
@@ -276,7 +276,7 @@ public:
   TDynamicMatrix operator+(const TDynamicMatrix& m)
   {
       if (this->sz != m.sz)
-          throw std::exception "Matrices have different size";
+          throw std::exception; "Matrices have different size";
       TDynamicMatrix tmp(sz);
       for (size_t i = 0; i < sz; i++)
           for (size_t j = 0; j < sz; j++)
@@ -287,7 +287,7 @@ public:
   TDynamicMatrix operator-(const TDynamicMatrix& m)
   {
       if (this->sz != m.sz)
-          throw std::exception "Matrices have different size";
+          throw std::exception; //"Matrices have different size";
 
       TDynamicMatrix tmp(sz);
       for (size_t i = 0; i < sz; i++) {
@@ -300,7 +300,7 @@ public:
   TDynamicMatrix operator*(const TDynamicMatrix& m)
   {
       if (this->sz != m.sz)
-          throw std::exception "Matrices have different size";
+          throw std::exception; //"Matrices have different size";
 
       TDynamicMatrix tmp(sz);
       for (size_t i = 0; i < sz; i++)
