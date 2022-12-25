@@ -116,7 +116,7 @@ public:
   // скалярные операции
   TDynamicVector operator+(T val)
   {
-      TDynamicVector tmp(sz);
+      TDynamicVector<T> tmp(sz);
 
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] + val;
@@ -126,7 +126,7 @@ public:
   }
   TDynamicVector operator-(double val)
   {
-      TDynamicVector tmp(sz);
+      TDynamicVector<T> tmp(sz);
 
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] - val;
@@ -136,7 +136,7 @@ public:
   }
   TDynamicVector operator*(double val)
   {
-      TDynamicVector tmp(sz);
+      TDynamicVector<T> tmp(sz);
 
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] * val;
@@ -152,7 +152,7 @@ public:
           throw domain_error ("Objects have different size");
       }
 
-      TDynamicVector tmp(sz);
+      TDynamicVector<T> tmp(sz);
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] + v.pMem[i];
       }
@@ -165,7 +165,7 @@ public:
           throw domain_error ("Objects have different size");
       }
 
-      TDynamicVector tmp(sz);
+      TDynamicVector<T> tmp(sz);
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] - v.pMem[i];
       }
@@ -264,7 +264,7 @@ public:
   // матрично-векторные операции
   TDynamicVector<T> operator*(const TDynamicVector<T>& v)
   {
-      TDynamicVector tmp(sz);
+      TDynamicVector<T> tmp(sz);
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] * v.pMem[i];
       }
@@ -277,7 +277,7 @@ public:
   {
       if (this->sz != m.sz)
           throw domain_error ("Matrices have different size");
-      TDynamicMatrix tmp(sz);
+      TDynamicMatrix<T> tmp(sz);
       for (size_t i = 0; i < sz; i++)
           for (size_t j = 0; j < sz; j++)
               tmp.pMem[i][j] = this->pMem[i][j] + m.pMem[i][j];
@@ -289,7 +289,7 @@ public:
       if (this->sz != m.sz)
           throw domain_error("Matrices have different size");
 
-      TDynamicMatrix tmp(sz);
+      TDynamicMatrix<T> tmp(sz);
       for (size_t i = 0; i < sz; i++) {
           for (size_t j = 0; j < sz; j++) {
               tmp.pMem[i][j] = this->pMem[i][j] - m.pMem[i][j];
@@ -302,7 +302,7 @@ public:
       if (this->sz != m.sz)
           throw domain_error("Matrices have different size");
 
-      TDynamicMatrix tmp(sz);
+      TDynamicMatrix<T> tmp(sz);
       for (size_t i = 0; i < sz; i++)
           for (size_t j = 0; j < sz; j++)
               for (size_t k = 0; k < sz; k++)
