@@ -30,11 +30,7 @@ TEST(TDynamicVector, copied_vector_is_equal_to_source_one)
 	TDynamicVector<int> v(arr, 3);
 	TDynamicVector<int> v1(v);
 	EXPECT_EQ(1, v == v1);
-	//double arr[] = { 10.0, -2.0, 3.0, 4.0 };
-	//size_t size = 4;
-	//TDynamicVector<double> v(arr, size);
-	//TDynamicVector<double> copy(v);
-	//EXPECT_TRUE(v == copy);
+
 }
 
 TEST(TDynamicVector, copied_vector_has_its_own_memory)
@@ -200,7 +196,7 @@ TEST(TDynamicVector, cant_subtract_vectors_with_not_equal_size)
 {
 	TDynamicVector<int> v(3), v1(5);
 
-	EXPECT_ANY_THROW(v + v1);
+	EXPECT_ANY_THROW(v - v1);
 }
 
 TEST(TDynamicVector, can_multiply_vectors_with_equal_size)
