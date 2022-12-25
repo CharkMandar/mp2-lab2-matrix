@@ -172,7 +172,7 @@ public:
 
       return tmp;
   }
-  T operator*(const TDynamicVector& v) noexcept(noexcept(T()))
+  T operator*(const TDynamicVector& v))
   {
       if (sz != v.sz)
           throw domain_error ("Vectors are different in size");
