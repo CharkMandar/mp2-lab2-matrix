@@ -116,7 +116,7 @@ public:
   // скалярные операции
   TDynamicVector operator+(T val)
   {
-      TDynamicVector<T> tmp(sz);
+      TDynamicVector tmp(sz);
 
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] + val;
@@ -126,7 +126,7 @@ public:
   }
   TDynamicVector operator-(double val)
   {
-      TDynamicVector<T> tmp(sz);
+      TDynamicVector tmp(sz);
 
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] - val;
@@ -136,7 +136,7 @@ public:
   }
   TDynamicVector operator*(double val)
   {
-      TDynamicVector<T> tmp(sz);
+      TDynamicVector tmp(sz);
 
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] * val;
@@ -152,7 +152,7 @@ public:
           throw domain_error ("Objects have different size");
       }
 
-      TDynamicVector<T> tmp(sz);
+      TDynamicVector tmp(sz);
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] + v.pMem[i];
       }
@@ -165,7 +165,7 @@ public:
           throw domain_error ("Objects have different size");
       }
 
-      TDynamicVector<T> tmp(sz);
+      TDynamicVector tmp(sz);
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] - v.pMem[i];
       }
@@ -253,7 +253,7 @@ public:
   // матрично-скалярные операции
   TDynamicVector<T> operator*(const T& val)
   {
-      TDynamicVector tmp(sz);
+      TDynamicVector<T> tmp(sz);
       for (size_t i = 0; i < sz; i++) {
           tmp.pMem[i] = this->pMem[i] * val;
       }
